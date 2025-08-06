@@ -1,6 +1,6 @@
 import React from "react";
 
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/components/navbar";
 
 export default function layout({children} : Readonly<{children: React.ReactNode}>){
     return(
