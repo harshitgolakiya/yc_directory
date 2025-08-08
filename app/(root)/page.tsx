@@ -12,7 +12,10 @@ const page = async ({searchParams}:{
 }) => {
   const query = (await searchParams).query;
   const params = {search:query || null}
-   const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params });
+  const {data: posts} = await sanityFetch({query: STARTUPS_QUERY, params });
+  const session = await auth();
+
+  console.log("session", session?.id);
 
   return (
     <>
@@ -24,7 +27,7 @@ const page = async ({searchParams}:{
         </p>
         <SearchForm query={query} />
       </section>    
-      <section className='section_container'>
+      <section className='section_container '>
         <p className='text-30-semibold'>
           {query ? `search result for "${query}"` : "Explore Startups"}
         </p>
